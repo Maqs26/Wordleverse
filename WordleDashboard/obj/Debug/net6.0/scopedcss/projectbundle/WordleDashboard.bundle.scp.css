@@ -1,0 +1,434 @@
+/* _content/WordleDashboard/Components/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-eayvsimx86] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-eayvsimx86] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-eayvsimx86] {
+    font-size: 1.1rem;
+}
+
+.oi[b-eayvsimx86] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-eayvsimx86] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-eayvsimx86] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-eayvsimx86] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-eayvsimx86]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item[b-eayvsimx86]  a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .nav-item[b-eayvsimx86]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-eayvsimx86] {
+        display: none;
+    }
+
+    .collapse[b-eayvsimx86] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
+
+/* Style for the navigation bar */
+.navbar[b-eayvsimx86] {
+    background-color: #ccc;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    color: lightgreen;
+    background-color: #031A77;
+    border-bottom: 2px solid black
+}
+
+/* Style for the logo or brand */
+.navbar-logo[b-eayvsimx86] {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Style for the navigation links */
+.navbar-links[b-eayvsimx86] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .navbar-links a[b-eayvsimx86] {
+        color: grey;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 1.8rem;
+        font-family: 'Lato';
+    }
+
+/* Style for the hamburger menu */
+.navbar-hamburger[b-eayvsimx86] {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Show the hamburger menu for small screens */
+    .navbar-hamburger[b-eayvsimx86] {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Hide the navigation links for small screens */
+    .navbar-links[b-eayvsimx86] {
+        display: none;
+    }
+
+    /* Style for the dropdown menu */
+    .navbar-dropdown[b-eayvsimx86] {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #ccc;
+        width: 100%;
+        z-index: 998;
+        padding: 20px;
+        display: none;
+    }
+
+        .navbar-dropdown a[b-eayvsimx86] {
+            display: block;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .navbar-dropdown.show[b-eayvsimx86] {
+            display: block;
+        }
+
+
+/*    @keyframes rotateText {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    .rotate {
+        animation-name: rotateText;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }*/
+}
+
+/* _content/WordleDashboard/Components/WordleGraph.razor.rz.scp.css */
+
+
+
+
+.progress-container[b-u0mntyl4ma] {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 20px;
+
+}
+
+progress[b-u0mntyl4ma]{
+    height:40px;
+}
+
+.container[b-u0mntyl4ma] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* _content/WordleDashboard/Pages/Index.razor.rz.scp.css */
+html[b-gtvu9drhkk] {
+    height: 100%;
+}
+
+body[b-gtvu9drhkk] {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #202020, #111119);
+}
+
+.rain[b-gtvu9drhkk] {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+    .rain.back-row[b-gtvu9drhkk] {
+        display: none;
+        z-index: 1;
+        bottom: 60px;
+        opacity: 0.5;
+    }
+
+body.back-row-toggle .rain.back-row[b-gtvu9drhkk] {
+    display: block;
+}
+
+.drop[b-gtvu9drhkk] {
+    position: absolute;
+    bottom: 100%;
+    width: 15px;
+    height: 120px;
+    pointer-events: none;
+    animation: drop-b-gtvu9drhkk 0.5s linear infinite;
+}
+
+@keyframes drop-b-gtvu9drhkk {
+    0% {
+        transform: translateY(0vh);
+    }
+
+    75% {
+        transform: translateY(90vh);
+    }
+
+    100% {
+        transform: translateY(90vh);
+    }
+}
+
+.stem[b-gtvu9drhkk] {
+    width: 1px;
+    height: 60%;
+    margin-left: 7px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    animation: stem-b-gtvu9drhkk 0.5s linear infinite;
+}
+
+@keyframes stem-b-gtvu9drhkk {
+    0% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.splat[b-gtvu9drhkk] {
+    width: 15px;
+    height: 10px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0);
+    animation: splat-b-gtvu9drhkk 0.5s linear infinite;
+    display: none;
+}
+
+body.splat-toggle .splat[b-gtvu9drhkk] {
+    display: block;
+}
+
+@keyframes splat-b-gtvu9drhkk {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    90% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+.toggles[b-gtvu9drhkk] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.toggle[b-gtvu9drhkk] {
+    position: absolute;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    line-height: 51px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .toggle:hover[b-gtvu9drhkk] {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .toggle:active[b-gtvu9drhkk] {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .toggle.active[b-gtvu9drhkk] {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+
+.splat-toggle[b-gtvu9drhkk] {
+    top: 20px;
+}
+
+.back-row-toggle[b-gtvu9drhkk] {
+    top: 90px;
+    line-height: 12px;
+    padding-top: 14px;
+}
+
+.single-toggle[b-gtvu9drhkk] {
+    top: 160px;
+}
+
+body.single-toggle .drop[b-gtvu9drhkk] {
+    display: none;
+}
+
+    body.single-toggle .drop:nth-child(10)[b-gtvu9drhkk] {
+        display: block;
+    }
+/* _content/WordleDashboard/Shared/MainLayout.razor.rz.scp.css */
+.page[b-k5vp4qehfz] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-k5vp4qehfz] {
+    flex: 1;
+}
+
+.sidebar[b-k5vp4qehfz] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-k5vp4qehfz] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-k5vp4qehfz]  a, .top-row .btn-link[b-k5vp4qehfz] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-k5vp4qehfz] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-k5vp4qehfz] {
+        display: none;
+    }
+
+    .top-row.auth[b-k5vp4qehfz] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-k5vp4qehfz], .top-row .btn-link[b-k5vp4qehfz] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-k5vp4qehfz] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-k5vp4qehfz] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-k5vp4qehfz] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row[b-k5vp4qehfz], article[b-k5vp4qehfz] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}

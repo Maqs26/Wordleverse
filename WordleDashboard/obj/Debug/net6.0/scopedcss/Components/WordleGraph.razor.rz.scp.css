@@ -1,0 +1,26 @@
+
+
+
+
+.progress-container[b-u0mntyl4ma] {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 20px;
+
+}
+
+progress[b-u0mntyl4ma]{
+    height:40px;
+}
+
+.container[b-u0mntyl4ma] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+

@@ -1,0 +1,66 @@
+﻿@using WordleDashboard.EFModels
+
+
+    <div class="container">
+        @*<div class="progress-container" style="margin-top: 20px">*@
+        <MudStack Spacing="10">
+            <h4 style="font-family:Lato;">One guess</h4>
+            <h4 style="font-family:Lato;">Two guesses</h4>
+            <h4 style="font-family:Lato;">Three guesses</h4>
+            <h4 style="font-family:Lato;">Four guesses</h4>
+            <h4 style="font-family:Lato;">Five guesses</h4>
+            <h4 style="font-family:Lato;">Six guesses</h4>
+        </MudStack>
+        @*</div>*@
+
+
+        @foreach(Player? player in Players)
+        {
+            <MudStack>
+                @*<div class="progress-container">*@
+                    <h4 style="font-family:Lato;">@player.Name</h4>
+            
+                <MudProgressLinear Color="Color.Primary" Value="@player.OneGuessInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                @*<progress id="file" value="@player?.OneGuessesInRound" max="30"> 32% </progress>*@
+
+                <MudProgressLinear Color="Color.Primary" Value="@player.TwoGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                    @*<progress id="file" value="@player?.TwoGuessesInRound" max="30"> 32% </progress>*@
+
+                <MudProgressLinear Color="Color.Primary" Value="@player.ThreeGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                    @*<progress id="file" value="@player?.ThreeGuessesInRound" max="30"> 32% </progress>*@
+
+                <MudProgressLinear Color="Color.Primary" Value="@player.FourGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                    @*<progress id="file" value="@player?.FourGuessesInRound" max="30"> 32% </progress>*@
+
+                <MudProgressLinear Color="Color.Primary" Value="@player.FiveGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                    @*<progress id="file" value="@player?.FiveGuessesInRound" max="30"> 32% </progress>*@
+                <MudProgressLinear Color="Color.Primary" Value="@player.SixGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+                 @*   <progress id="file" value="@player?.SixGuessesInRound" max="30"> 32% </progress>*@
+            </MudStack>
+  @*          </div>*@
+        }
+    </div>
+
+<div>
+
+</div>
+
+@code {
+
+    [Parameter]
+    public List<Player?> Players { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+}
+
+
