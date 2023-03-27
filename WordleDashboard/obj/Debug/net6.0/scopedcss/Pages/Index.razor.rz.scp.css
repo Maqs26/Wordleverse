@@ -6,7 +6,7 @@ body[b-gtvu9drhkk] {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, #202020, #111119);
+    background: #0c0f21;
 }
 
 .rain[b-gtvu9drhkk] {
@@ -15,6 +15,13 @@ body[b-gtvu9drhkk] {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+.logo[b-gtvu9drhkk]{
+    justify-content:center;
+    display: flex;
+    background-image: url(\img\wordle_logo.png);
+    background-size:cover;
 }
 
     .rain.back-row[b-gtvu9drhkk] {

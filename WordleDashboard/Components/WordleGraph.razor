@@ -3,7 +3,7 @@
 
     <div class="container">
         @*<div class="progress-container" style="margin-top: 20px">*@
-        <MudStack Spacing="10">
+        <MudStack Spacing="7">
             <h4 style="font-family:Lato;">One guess</h4>
             <h4 style="font-family:Lato;">Two guesses</h4>
             <h4 style="font-family:Lato;">Three guesses</h4>
@@ -16,7 +16,7 @@
 
         @foreach(Player? player in Players)
         {
-            <MudStack>
+            <MudStack Spacing="0" Style="margin-bottom: 20px;">
                 @*<div class="progress-container">*@
                     <h4 style="font-family:Lato;">@player.Name</h4>
             
@@ -39,6 +39,7 @@
             </MudStack>
   @*          </div>*@
         }
+        
     </div>
 
 <div>

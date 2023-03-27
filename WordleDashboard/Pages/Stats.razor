@@ -1,8 +1,10 @@
 ﻿@page "/stats"
 
-<h3>Stats</h3>
+<body>
+    <WordleGraph Players="@Player"/>
+</body>
 
-<WordleGraph Players="@Player"/>
+
 
 @code {
     public List<Player>? Player;

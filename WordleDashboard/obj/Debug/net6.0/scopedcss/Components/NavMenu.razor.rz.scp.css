@@ -63,7 +63,7 @@
 
 /* Style for the navigation bar */
 .navbar[b-eayvsimx86] {
-    background-color: #ccc;
+    background-color: #0c0f21;
     height: 75px;
     display: flex;
     justify-content: space-between;
@@ -74,9 +74,6 @@
     left: 0;
     width: 100%;
     z-index: 999;
-    color: lightgreen;
-    background-color: #031A77;
-    border-bottom: 2px solid black
 }
 
 /* Style for the logo or brand */

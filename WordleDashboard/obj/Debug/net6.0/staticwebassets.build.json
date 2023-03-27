@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GMHNqXbp2xRmhLh7S6uQ6Imch/Sf7By/GYhlqI1KU+8=",
+  "Hash": "8XOFd6PS1bod9opMoUDrh+cBYY/3zH1/fomPJR0atAg=",
   "Source": "WordleDashboard",
   "BasePath": "_content/WordleDashboard",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\dev\\WordleDashboard\\WordleDashboard\\wwwroot\\img\\wordle_logo.png",
+      "SourceId": "WordleDashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\dev\\WordleDashboard\\WordleDashboard\\wwwroot\\",
+      "BasePath": "_content/WordleDashboard",
+      "RelativePath": "img/wordle_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\wordle_logo.png"
     },
     {
       "Identity": "C:\\Users\\smpet\\.nuget\\packages\\mudblazor\\6.2.0\\staticwebassets\\MudBlazor.min.css",

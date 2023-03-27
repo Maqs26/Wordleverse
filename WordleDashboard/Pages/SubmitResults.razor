@@ -1,0 +1,106 @@
+﻿@page "/submitresults"
+
+
+
+@inject IDbContextFactory<WordleDashboardContext> _ContextFactory
+
+<body>
+        <MudText Style="font-size:24px; font-weight:bold; margin-top: 20px;" Align="Align.Center">Submit Daily Results &nbsp; &nbsp; &nbsp; @DateTime.Now</MudText>
+
+
+            <EditForm Model="@_Result">
+                <MudGrid>
+                    <div style="display:block; margin-right: auto; margin-left: auto; height:100%">
+                        <MudItem xs="12">
+                            <MudCard Style="background-color: #0c0f21;justify-content: center;display: flex;margin-top: 50px;gap: 25px;align-items: center;">
+                                <MudSelect
+                                    Placeholder="Please choose player..."
+                                    T="string"
+                                    @bind-Value="_Result.PlayerName"
+                                    Label="Player Name"
+                                    Style="font-size: 20px;"
+                                    AdornmentColor="Color.Default"
+                                    AnchorOrigin="Origin.BottomCenter">
+                                    @foreach (DropdownValue value in DropdownValues)
+                                    {
+                                        if (value.DropdownId == 1)
+                                        {
+                                            <MudSelectItem Value="@value.Value" />
+                                        }
+                                    }
+                                </MudSelect>
+                                <MudSelect 
+                                    Placeholder="0"
+                                    T="string"
+                                    @bind-Value="_Result.AmountOfGuesses"
+                                    Label="Amount of Guesses"
+                                    Style="font-size: 20px;"
+                                    AdornmentColor="Color.Default"
+                                    AnchorOrigin="Origin.BottomCenter">
+                                    @foreach (DropdownValue value in DropdownValues)
+                                    {
+                                        if (value.DropdownId == 2)
+                                        {
+                                            <MudSelectItem Value="@value.Value" />
+                                        }
+                            }
+                                </MudSelect>
+
+                                <MudButton OnClick="Submit" Variant="Variant.Filled" Color="Color.Primary">
+                                        Submit
+                                </MudButton>
+                            </MudCard>
+                        </MudItem>
+                    </div>
+                </MudGrid>
+            </EditForm>
+
+</body>
+
+@code {
+    public ResultsModel _Result = new();
+    public List<DropdownValue> DropdownValues = new();
+    public WordleDashboardContext? context;
+
+    // public ResultsModel _Result = new();
+
+    public string? PlayerName = "";
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        context = _ContextFactory.CreateDbContext();
+        DataLayer dl = new(_ContextFactory);
+        DropdownValues = await dl.GetSubmitResultsDropdownValues(0);
+
+
+    }
+
+
+    public async Task Submit()
+    {
+        DataLayer dl = new(_ContextFactory);
+        _Result.TimeOfSubmission = DateTime.Now;
+        _Result.PlayerId = await dl.GetPlayerIdFromPlayerName(_Result);
+        await dl.SaveData(_Result);
+
+    }
+
+    public async Task SetPlayerId()
+    {
+        WordleDashboardContext context = _ContextFactory.CreateDbContext();
+
+        if (!String.IsNullOrEmpty(_Result.PlayerName) && _Result.PlayerName != "Please choose player...")
+        {
+            try
+            {
+                _Result.PlayerId = await context.DropdownValues.Where(x => x.Value == _Result.PlayerName).Select(y => y.Id).FirstOrDefaultAsync();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+    }
+
+}

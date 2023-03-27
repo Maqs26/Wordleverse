@@ -1,8 +1,11 @@
-﻿namespace WordleDashboard.EFModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WordleDashboard.EFModels
 {
     public class Player
     {
         public int Id { get; set; }
+        [Required]
         public string? Name { get; set; }
         public int? Round { get; set; }
         public int? TotalRoundWins { get; set; }

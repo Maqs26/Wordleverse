@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MudBlazor.Services;
-
-
-
+using WordleDashboard.EFContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
+
+var connectionString = builder.Configuration.GetConnectionString("Default") ?? throw new NullReferenceException("No Connection string in config");
+
+builder.Services.AddDbContextFactory<WordleDashboardContext>((DbContextOptionsBuilder options) =>
+options.UseSqlServer(connectionString));
 
 
 var app = builder.Build();
