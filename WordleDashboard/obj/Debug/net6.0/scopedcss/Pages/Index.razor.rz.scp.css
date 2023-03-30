@@ -5,7 +5,7 @@ html[b-gtvu9drhkk] {
 body[b-gtvu9drhkk] {
     height: 100%;
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
     background: #0c0f21;
 }
 
@@ -17,11 +17,11 @@ body[b-gtvu9drhkk] {
     z-index: 2;
 }
 
-.logo[b-gtvu9drhkk]{
-    justify-content:center;
+.logo[b-gtvu9drhkk] {
+    justify-content: center;
     display: flex;
-    background-image: url(\img\wordle_logo.png);
-    background-size:cover;
+    background-image: url(img\wordle_logo.png);
+    
 }
 
     .rain.back-row[b-gtvu9drhkk] {

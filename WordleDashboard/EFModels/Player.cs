@@ -13,6 +13,7 @@ namespace WordleDashboard.EFModels
         public int? TotalTies { get; set; }
         public int? TotalRoundTies {get; set;}
         public int? TotalGuesses { get; set; }
+        public int? OverallGamesPlayed { get; set; }
         public decimal? AvgTotalGuesses { get; set; }
         public decimal? Winpercentage { get; set; }
 

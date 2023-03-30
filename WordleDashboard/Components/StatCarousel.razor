@@ -1,0 +1,84 @@
+﻿<MudCarousel Class="mud-width-full" Style="height:600px; border-radius:15px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+    
+    @*MATT*@
+    <MudCarouselItem Transition="transition" Style="background-color:#FF5252">
+        <h2 class="name">Matt</h2>
+        <div class="d-flex" style="height:100%; text-align:center">
+            <WordleGraph Name="MATT" Player=Players[0]/>
+            <PlayerStatSheet Player=Players[0] />
+        </div>
+    </MudCarouselItem>
+
+    @*SAM*@
+    <MudCarouselItem Transition="transition" Color="Color.Tertiary">
+        <h2 class="name">Sam</h2>
+        <div class="d-flex" style="height:100%">
+            <WordleGraph Name="SAM" Player=Players[1]/> 
+            <PlayerStatSheet Player=Players[1] />
+        </div>
+    </MudCarouselItem>
+
+    @*ANDY*@
+    <MudCarouselItem Transition="transition" Color="Color.Primary">
+        <h2 class="name">Andy</h2>
+        <div style="border 3px solid black;border-radius:10px">
+            <div class="d-flex" style="height:100%">
+                <WordleGraph Name="ANDY" Player=Players[2] />
+                <PlayerStatSheet Player=Players[2] />
+            </div>
+        </div>
+    </MudCarouselItem>
+
+    @*ANGELA*@
+    <MudCarouselItem Transition="transition" Color="Color.Success">
+        <h2 class="name">Angela</h2>
+        <div class="d-flex" style="height:100%">
+            <WordleGraph Name="ANGELA" Player=Players[3] />
+            <PlayerStatSheet Player=Players[3] />
+        </div>
+    </MudCarouselItem>
+
+    @*MARTY*@
+    <MudCarouselItem Transition="transition" Color="Color.Secondary">
+        <h2 class="name">Marty</h2>
+        <div class="d-flex" style="height:100%">
+            <WordleGraph Name="MARTY" Player=Players[4] />
+            <PlayerStatSheet Player=Players[4] />
+        </div>
+    </MudCarouselItem>
+
+    @*SANDY*@
+    <MudCarouselItem Transition="transition" Style="background-color: #9FA8DA;">
+        <h2 class="name">Sandy</h2>
+        <div class="d-flex" style="height:100%">
+            <WordleGraph Name="SANDY" Player=Players[5]/>
+            <PlayerStatSheet Player=Players[5] />
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
+
+
+@code {
+
+    [Parameter]
+    public List<Player>? Players { get; set; }
+
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+}

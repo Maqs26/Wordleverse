@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Identity.Client;
 using System.Reflection.Metadata;
+using System.Xml.Linq;
 using WordleDashboard.DataTransferObjects;
 using WordleDashboard.EFContexts;
 using WordleDashboard.EFModels;
@@ -25,6 +26,8 @@ namespace WordleDashboard.Modules
         {
             try
             {
+                Player player = await CalculatePlayerStats(_Results);
+
                 Result result = new(_Results);
 
                 using (var context = _ContextFactory.CreateDbContext())
@@ -33,8 +36,12 @@ namespace WordleDashboard.Modules
                     {
                         result!.Gkey = Guid.NewGuid();
                         await context.Results.AddAsync(result);
-                        context.SaveChanges();
                     }
+
+                    context.Attach(player);
+                    context.Entry(player).State = EntityState.Modified;
+
+                    context.SaveChanges();
                 }
             }
             catch(Exception ex)
@@ -65,6 +72,63 @@ namespace WordleDashboard.Modules
         {
             WordleDashboardContext context = _ContextFactory.CreateDbContext();
             return await context.DropdownValues.Where(x => x.Value == result.PlayerName).Select(y => y.Id).FirstOrDefaultAsync();
+        }
+
+        public async Task<Player> CalculatePlayerStats(ResultsModel result)
+        {
+            WordleDashboardContext context = _ContextFactory.CreateDbContext();
+            result.TimeOfSubmission = DateTime.Now;
+            result.PlayerId = await GetPlayerIdFromPlayerName(result);
+
+            Player player = await context.Players.Where(x => x.Id == result.PlayerId).FirstOrDefaultAsync() ?? new();
+
+            //Overall games played
+            player.OverallGamesPlayed++;
+
+            //Amount of guesses
+            int AmtOfGuessesResult = 0;
+            int.TryParse(result?.AmountOfGuesses, out AmtOfGuessesResult);
+            player.TotalGuesses += AmtOfGuessesResult;
+            
+            //Average total guesses
+            player.AvgTotalGuesses = (decimal?)((player.OneGuessInRound +
+                                                 player.TwoGuessesInRound +
+                                                 player.ThreeGuessesInRound +
+                                                 player.FourGuessesInRound +
+                                                 player.FiveGuessesInRound +
+                                                 player.SixGuessesInRound +
+                                                 player.MissesInRound)
+                                               / player.TotalGuesses);
+            //Guesses per round increment
+            switch (AmtOfGuessesResult)
+            {
+                case 1:
+                    player.OneGuessInRound++;
+                    break;
+                case 2:
+                    player.TwoGuessesInRound++;
+                    break;
+                case 3:
+                    player.ThreeGuessesInRound++;
+                    break;
+                case 4:
+                    player.FourGuessesInRound++;
+                    break;
+                case 5:
+                    player.FiveGuessesInRound++;
+                    break;
+                case 6:
+                    player.SixGuessesInRound++;
+                    break;
+                default:
+                    player.MissesInRound++;
+                    player.MissedEntriesTotal++;
+                    break;
+            }
+
+            return player;
+
+
         }
 
 

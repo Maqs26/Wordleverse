@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/dev/WordleDashboard/WordleDashboard/Components/PlayerStatSheet.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQbGF5ZXJTdGF0U2hlZXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/dev/WordleDashboard/WordleDashboard/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/dev/WordleDashboard/WordleDashboard/Components/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xOYXZNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-eayvsimx86
+
+[C:/dev/WordleDashboard/WordleDashboard/Components/StatCarousel.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTdGF0Q2Fyb3VzZWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ptkd341zac
 
 [C:/dev/WordleDashboard/WordleDashboard/Components/WordleGraph.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xXb3JkbGVHcmFwaC5yYXpvcg==

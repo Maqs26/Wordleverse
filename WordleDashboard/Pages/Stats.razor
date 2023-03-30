@@ -1,29 +1,44 @@
 ﻿@page "/stats"
 
+@inject IDbContextFactory<WordleDashboardContext> _ContextFactory
+
 <body>
-    <WordleGraph Players="@Player"/>
+    <StatCarousel Players="Players"/>
 </body>
 
 
 
 @code {
-    public List<Player>? Player;
+    public List<Player>? Players = new();
+    public WordleDashboardContext? context;
 
-    protected override async Task OnParametersSetAsync()
+    protected async override Task OnInitializedAsync()
     {
-
-
+        Players = new();
+        try
+        {
+            context = _ContextFactory.CreateDbContext();
+            Players =  context.Players.ToList() ?? new();
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
     }
 
-    protected override async Task OnInitializedAsync()
-    {
-        Player = new();
-        Player?.Add(new Player { Name = "Marty",    OneGuessInRound = 0, TwoGuessesInRound = 1, ThreeGuessesInRound = 8, FourGuessesInRound = 9, FiveGuessesInRound = 8,  SixGuessesInRound = 6 });
-        Player?.Add(new Player { Name = "Sandy",    OneGuessInRound = 0, TwoGuessesInRound = 3, ThreeGuessesInRound = 4, FourGuessesInRound = 2, FiveGuessesInRound = 2,  SixGuessesInRound = 3 });
-        Player?.Add(new Player { Name = "Angela",   OneGuessInRound = 0, TwoGuessesInRound = 2, ThreeGuessesInRound = 5, FourGuessesInRound = 8, FiveGuessesInRound = 4,  SixGuessesInRound = 5 });
-        Player?.Add(new Player { Name = "Andy",     OneGuessInRound = 1, TwoGuessesInRound = 3, ThreeGuessesInRound = 6, FourGuessesInRound = 4, FiveGuessesInRound = 8,  SixGuessesInRound = 7 });
-        Player?.Add(new Player { Name = "Sam",      OneGuessInRound = 0, TwoGuessesInRound = 2, ThreeGuessesInRound = 7, FourGuessesInRound = 8, FiveGuessesInRound = 3,  SixGuessesInRound = 3 });
-        Player?.Add(new Player { Name = "Matt",     OneGuessInRound = 0, TwoGuessesInRound = 5, ThreeGuessesInRound = 3, FourGuessesInRound = 2, FiveGuessesInRound = 11, SixGuessesInRound = 1 });
-    }
+
+
 
 }
+
+
+
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        overflow: auto;
+        background: #0c0f21;
+        background-size: cover;
+    }
+</style>

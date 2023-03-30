@@ -1,65 +1,73 @@
 ﻿@using WordleDashboard.EFModels
-
-
-    <div class="container">
-        @*<div class="progress-container" style="margin-top: 20px">*@
-        <MudStack Spacing="7">
-            <h4 style="font-family:Lato;">One guess</h4>
-            <h4 style="font-family:Lato;">Two guesses</h4>
-            <h4 style="font-family:Lato;">Three guesses</h4>
-            <h4 style="font-family:Lato;">Four guesses</h4>
-            <h4 style="font-family:Lato;">Five guesses</h4>
-            <h4 style="font-family:Lato;">Six guesses</h4>
-        </MudStack>
-        @*</div>*@
-
-
-        @foreach(Player? player in Players)
-        {
-            <MudStack Spacing="0" Style="margin-bottom: 20px;">
-                @*<div class="progress-container">*@
-                    <h4 style="font-family:Lato;">@player.Name</h4>
-            
-                <MudProgressLinear Color="Color.Primary" Value="@player.OneGuessInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                @*<progress id="file" value="@player?.OneGuessesInRound" max="30"> 32% </progress>*@
-
-                <MudProgressLinear Color="Color.Primary" Value="@player.TwoGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                    @*<progress id="file" value="@player?.TwoGuessesInRound" max="30"> 32% </progress>*@
-
-                <MudProgressLinear Color="Color.Primary" Value="@player.ThreeGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                    @*<progress id="file" value="@player?.ThreeGuessesInRound" max="30"> 32% </progress>*@
-
-                <MudProgressLinear Color="Color.Primary" Value="@player.FourGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                    @*<progress id="file" value="@player?.FourGuessesInRound" max="30"> 32% </progress>*@
-
-                <MudProgressLinear Color="Color.Primary" Value="@player.FiveGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                    @*<progress id="file" value="@player?.FiveGuessesInRound" max="30"> 32% </progress>*@
-                <MudProgressLinear Color="Color.Primary" Value="@player.SixGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
-                 @*   <progress id="file" value="@player?.SixGuessesInRound" max="30"> 32% </progress>*@
-            </MudStack>
-  @*          </div>*@
-        }
+    
+<div class="container">
         
-    </div>
+    <MudStack Spacing="7">
+        <h4 style="font-family:Lato; padding-bottom: 4px;">One guess</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">Two guesses</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">Three guesses</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">Four guesses</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">Five guesses</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">Six guesses</h4>
+        <div style="margin-bottom: 5px;" />
+    </MudStack>
 
-<div>
+    <MudStack Spacing="0" Style="margin-bottom: 20px;">
+        @*<div class="progress-container">*@
+        <h4 style="font-family:Lato; font-weight:bold; font-size: 25px;padding-bottom:15px">Overall Games Played in Round: @GetSum()</h4>
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.OneGuessInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.TwoGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.ThreeGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.FourGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.FiveGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+        <MudProgressLinear Style="color: #7317bf" Value="@Player!.SixGuessesInRound" Size=Size.Large Max="20" Indeterminate="false" Class="my-7" />
+            <div style="margin-bottom: 40px"/>
+    </MudStack>
 
+    <MudStack Spacing="7">
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.OneGuessInRound</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.TwoGuessesInRound</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.ThreeGuessesInRound</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.FourGuessesInRound</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.FiveGuessesInRound</h4>
+        <h4 style="font-family:Lato; padding-bottom: 4px;">@Player?.SixGuessesInRound</h4>
+        <div style="margin-bottom: 5px;"/>
+    </MudStack>
+
+
+    <div Style="margin-bottom:150px;" />
+        
 </div>
+
+
 
 @code {
 
     [Parameter]
-    public List<Player?> Players { get; set; }
+    public Player? Player { get; set; }
+
+    [Parameter]
+    public string? Name { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
-        
+
 
     }
 
     protected override async Task OnInitializedAsync()
     {
 
+    }
+
+    public double GetSum()
+    {
+        return Player!.OneGuessInRound
+               + Player!.TwoGuessesInRound
+               + Player!.ThreeGuessesInRound
+               + Player!.FourGuessesInRound
+               + Player!.FiveGuessesInRound
+               + Player!.SixGuessesInRound;
     }
 
 }

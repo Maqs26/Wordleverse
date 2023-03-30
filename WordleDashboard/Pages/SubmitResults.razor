@@ -80,8 +80,7 @@
     public async Task Submit()
     {
         DataLayer dl = new(_ContextFactory);
-        _Result.TimeOfSubmission = DateTime.Now;
-        _Result.PlayerId = await dl.GetPlayerIdFromPlayerName(_Result);
+        
         await dl.SaveData(_Result);
 
     }

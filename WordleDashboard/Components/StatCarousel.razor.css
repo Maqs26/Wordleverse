@@ -1,0 +1,14 @@
+﻿.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    font-family: monospace;
+}
